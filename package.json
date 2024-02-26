@@ -30,9 +30,7 @@
     "nodemon": "^2.0.22",
     "prettier": "^3.2.5",
     "tsx": "^4.7.1",
-    "typescript": "^5.3.3",
-    "webpack": "^5.90.2",
-    "webpack-cli": "^5.1.4"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "ws": "^8.16.0"
