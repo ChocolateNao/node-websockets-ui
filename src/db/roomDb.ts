@@ -15,7 +15,6 @@ export class RoomDatabase {
         roomId,
         roomUsers: [],
       });
-      console.log(`Room with ID ${roomId} created.`);
     } else {
       console.error(`Room with ID ${roomId} already exists.`);
     }
@@ -25,7 +24,6 @@ export class RoomDatabase {
     const index = this.rooms.findIndex((room) => room.roomId === roomId);
     if (index !== -1) {
       this.rooms.splice(index, 1);
-      console.log(`Room with ID ${roomId} deleted.`);
     } else {
       console.error(`Room with ID ${roomId} does not exist.`);
     }
@@ -35,7 +33,6 @@ export class RoomDatabase {
     const room = this.rooms.find((room) => room.roomId === roomId);
     if (room) {
       room.roomUsers.push(user);
-      console.log(`User ${user.name} added to room ${roomId}.`);
     } else {
       console.error(`Room with ID ${roomId} does not exist.`);
     }
@@ -47,7 +44,6 @@ export class RoomDatabase {
       const index = room.roomUsers.findIndex((user) => user.index === userId);
       if (index !== -1) {
         room.roomUsers.splice(index, 1);
-        console.log(`User with ID ${userId} removed from room ${roomId}.`);
       } else {
         console.error(`User with ID ${userId} not found in room ${roomId}.`);
       }
