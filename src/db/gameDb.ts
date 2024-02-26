@@ -28,4 +28,8 @@ export class GameDatabase {
       Object.assign(game, updatedGame);
     }
   }
+
+  getGameById(gameId: number | string): IGame | undefined {
+    return this.games.filter((game) => game.gameId === gameId)[0];
+  }
 }
