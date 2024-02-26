@@ -7,4 +7,6 @@ export const broadcastToAll = (
   server.clients.forEach((client) => {
     client.send(response);
   });
+  console.log(`[WS] | [broadcast] >> To: ALL`);
+  console.log('Data: ', response);
 };

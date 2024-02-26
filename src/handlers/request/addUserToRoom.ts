@@ -39,6 +39,10 @@ export const addUserToRoomHandler = (
         });
       });
       updateRoomHandler(wss);
+      console.log(
+        `[WS] | [${reqData.type}] >> To: ${game?.hostId} and ${game?.clientId}`,
+      );
+      console.log('Data: ', hostResponse, clientResponse);
     }
   }
 };
