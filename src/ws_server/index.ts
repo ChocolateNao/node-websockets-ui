@@ -12,13 +12,13 @@ export const sockets = new Map<number, WebSocket>();
 
 export const wsServerStart = (port: number): void => {
   const wss = new WebSocketServer({ port }, () => {
-    console.log(`[WS] >> WebSocket server started on port: ${port}`);
+    console.log(`[WS] | WebSocket server started on port: ${port}`);
   });
 
   wss.on('connection', (ws: WebSocket) => {
     const socketId = new Date().valueOf();
     sockets.set(socketId, ws);
-    console.log(`[WS] >> New connection. Socket ID: ${socketId}`);
+    console.log(`[WS] | New connection. Socket ID: ${socketId}`);
 
     ws.on('message', (data: string) => {
       const parsedData = jsonParseDeep(data);
@@ -33,7 +33,7 @@ export const wsServerStart = (port: number): void => {
     });
 
     ws.on('close', () => {
-      console.log('[WS] >> Connection was terminated');
+      console.log('[WS] | Connection was terminated');
       updateWinnersHandler(wss);
       updateRoomHandler(wss);
     });
