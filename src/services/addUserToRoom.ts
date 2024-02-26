@@ -12,11 +12,15 @@ export const addUserToRoom = (
       const rooms = db.rooms.getAllRooms();
       rooms.splice(rooms.indexOf(clientRoom), 1);
     }
-    const hostRoom = db.rooms.getRoomById(reqData.data.indexRoom as number);
+    const hostRoom = db.rooms.getRoomById(reqData.data.indexRoom);
     if (hostRoom) {
       const rooms = db.rooms.getAllRooms();
       rooms.splice(rooms.indexOf(hostRoom), 1);
     }
-    return { host: reqData.data.indexRoom, client: socketId, isOnline: true };
+    return {
+      host: reqData.data.indexRoom,
+      client: socketId,
+      isOnline: true,
+    };
   }
 };
